@@ -1,0 +1,143 @@
+:root {
+    --primary: #ff2e63;
+    --bg: #0f0205;
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    touch-action: manipulation;
+}
+
+canvas {
+    position: fixed;
+    inset: 0;
+    display: block;
+    z-index: 1;
+}
+
+.container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transition: opacity 1s ease;
+}
+
+.content-wrapper {
+    text-align: center;
+    padding: 0 20px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(to right, #fff, #ff2e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 .lablu {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(to right, #fff, #ff2e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 .kiss {
+    font-size: 60px;
+    line-height: 1;
+    display: inline-block;
+}
+
+
+
+p {
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.btn-group {
+    margin-top: 40px;
+    position: relative;
+}
+
+button {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.btn-yes {
+    background: var(--primary);
+    color: white;
+    margin-right: 20px;
+}
+
+.btn-no {
+    background: rgba(255,255,255,0.1);
+    color: #ccc;
+    position: relative;
+}
+
+.success-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 1s ease;
+}
+
+.success-overlay h2 {
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    button {
+        width: 80vw;
+        max-width: 280px;
+    }
+
+    .success-overlay h2 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+}
