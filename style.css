@@ -4,22 +4,31 @@
     --text: #ffffff;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    overflow: hidden;
+    min-height: 100vh;
     background: var(--bg);
     font-family: 'Poppins', sans-serif;
     color: var(--text);
     touch-action: manipulation;
+    overflow-x: hidden; /* Prevent horizontal shift */
 }
 
+/* Canvas Background */
 canvas {
     position: fixed;
     inset: 0;
+    width: 100%;
+    height: 100%;
     display: block;
     z-index: 1;
 }
 
+/* Main Container */
 .container {
     position: fixed;
     inset: 0;
@@ -27,14 +36,17 @@ canvas {
     justify-content: center;
     align-items: center;
     z-index: 5;
+    padding: 20px;
     transition: opacity 1s ease;
 }
 
 .content-wrapper {
     text-align: center;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
+/* Main Heading */
 h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
@@ -44,6 +56,68 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
+/* Subtitle */
+p {
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-top: 15px;
+}
+
+/* Buttons */
+.btn-group {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 14px 34px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    min-width: 140px;
+}
+
+.btn-yes {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-no {
+    background: rgba(255,255,255,0.1);
+    color: #ccc;
+}
+
+/* Success Overlay */
+.success-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 1s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+.success-overlay h2 {
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+}
+
+/* Keep your original styling */
 h3 .lablu {
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
@@ -59,85 +133,44 @@ h3 .kiss {
     display: inline-block;
 }
 
-
-
-p {
-    letter-spacing: 2px;
-    opacity: 0.8;
-}
-
-.btn-group {
-    margin-top: 40px;
-    position: relative;
-}
-
-button {
-    padding: 12px 30px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: 0.3s ease;
-}
-
-.btn-yes {
-    background: var(--primary);
-    color: white;
-    margin-right: 20px;
-}
-
-.btn-no {
-    background: rgba(255,255,255,0.1);
-    color: #ccc;
-    position: relative;
-}
-
-.success-overlay {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle, transparent, black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10;
-    transition: opacity 1s ease;
-}
-
-.success-overlay h2 {
-    font-size: 4rem;
-    font-family: 'Dancing Script', cursive;
-}
-
-/* ---------------- MOBILE ---------------- */
+/* ---------------- MOBILE FIX ---------------- */
 
 @media (max-width: 768px) {
 
+    .container {
+        padding: 30px 15px;
+    }
+
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+        line-height: 1.3;
     }
 
     p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
     }
 
     .btn-group {
-        display: flex;
         flex-direction: column;
         gap: 15px;
         margin-top: 30px;
     }
 
     button {
-        width: 80vw;
+        width: 100%;
         max-width: 280px;
     }
 
     .success-overlay h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 .lablu {
         font-size: 2.5rem;
-        text-align: center;
+    }
+
+    h3 .kiss {
+        font-size: 40px;
     }
 }
